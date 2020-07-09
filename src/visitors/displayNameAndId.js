@@ -159,7 +159,10 @@ export default t => (path, state) => {
   ) {
     const displayName =
       useDisplayName(state) &&
-      getDisplayName(t)(path, useFileName(state) && state)
+      `${useNamespace(state)}${getDisplayName(t)(
+        path,
+        useFileName(state) && state
+      )}`
 
     addConfig(t)(
       path,
